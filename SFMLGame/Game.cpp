@@ -47,11 +47,16 @@ void Game::update()
 	{
 		std::cout << "The player and npc is not colliding\n";
 	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	// press A or D to check collision
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		npc->m_sprite.setPosition(100, 200);
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		npc->m_sprite.setPosition(200, 200);
+	}
+
 }
 
 void Game::draw()
