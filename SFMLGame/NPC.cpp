@@ -1,17 +1,26 @@
-#include <NPC.h>
+#include "NPC.h"
 
-NPC::NPC(){};
+NPC::NPC()
+{
+	if (!m_texture.loadFromFile("face.png"));
+	{
+		//error
+	}
+	m_sprite.setTexture(m_texture);
+	m_sprite.setPosition(200, 200);
+};
 NPC::~NPC(){};
 
 void NPC::initialize()
 {
-	cout << "NPC initialize" << endl;
+	/*cout << "NPC initialize" << endl;*/
 }
 void NPC::update()
 {
-	cout << "NPC updating" << endl;
+	/*cout << "NPC updating" << endl;*/
 }
-void NPC::draw()
+void NPC::draw(sf::RenderWindow *t_window)
 {
-	cout << "NPC drawing" << endl;
+	/*cout << "NPC drawing" << endl;*/
+	t_window->draw(m_sprite);
 }

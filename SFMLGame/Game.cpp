@@ -1,4 +1,4 @@
-#include <Game.h>
+#include "Game.h"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
@@ -39,14 +39,27 @@ void Game::update()
 		npc->update();
 	}
 
+	if (player->m_sprite.getGlobalBounds().intersects(npc->m_sprite.getGlobalBounds()))
+	{
+		std::cout << "The player and Npc is colliding\n";
+	}
+	else
+	{
+		std::cout << "The player and npc is not colliding\n";
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		npc->m_sprite.setPosition(100, 200);
+	}
 }
 
 void Game::draw()
 {
 	window->clear();
 	//window->draw(shape);
-	player->draw();
-	npc->draw();
+	player->draw(window);
+	npc->draw(window);
 	window->display();
 }
 
